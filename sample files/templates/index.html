@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Recommendations</title>
+</head>
+<body>
+    <h1>Welcome to the Product Recommendation System</h1>
+    <form action="/recommend" method="post">
+        <label for="user_name">Enter User Name:</label>
+        <input type="text" name="user_name" id="user_name">
+        <input type="submit" value="Get Recommendations">
+    </form>
+
+    {% if recommended_products %}
+    <h2>Top 5 Recommended Products:</h2>
+    <ul>
+        {% for product in recommended_products %}
+            <li>{{ product }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if text %}
+    <p>{{ text }}</p>
+    {% endif %}
+</body>
+</html>
+
